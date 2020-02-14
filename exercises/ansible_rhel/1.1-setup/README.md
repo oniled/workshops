@@ -42,9 +42,11 @@ Most prerequisite tasks have already been done for you:
 Check Ansible has been installed correctly
 
 Command:
+
     [root@ansible ~]# ansible --version
     
 Result:
+
     ansible 2.7.0
     [...]
 
