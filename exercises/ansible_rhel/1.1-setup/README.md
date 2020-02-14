@@ -41,7 +41,10 @@ Most prerequisite tasks have already been done for you:
 
 Check Ansible has been installed correctly
 
+Command:
     [root@ansible ~]# ansible --version
+    
+Result:
     ansible 2.7.0
     [...]
 
@@ -51,7 +54,10 @@ Check Ansible has been installed correctly
 
 Log out of the root account again:
 
+Command:
     [root@ansible ~]# exit
+
+Result:
     logout
 
 > **Note**
