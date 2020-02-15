@@ -6,7 +6,9 @@ For our first exercise, we are going to run some ad-hoc commands to help you get
 
 ## Step 2.1 - Work with your Inventory
 
-To use the ansible command for host management, you need to provide an inventory file which defines a list of hosts to be managed from the control node. In this lab the inventory is provided by your instructor. The inventory is an ini formatted file listing your hosts, sorted in groups, additionally providing some variables. It looks like:
+To use the ansible command for host management, you need to provide an inventory file which defines a list of hosts to be managed from the control node. In this lab the inventory is provided by your instructor. The inventory is an ini formatted file listing your hosts, sorted in groups, additionally providing some variables. 
+
+Example Ansible inventory file:
 
 ```bash
 [all:vars]
@@ -27,15 +29,24 @@ Ansible is already configured to use the inventory specific to your environment.
 
 To reference inventory hosts, you supply a host pattern to the ansible command. Ansible has a `--list-hosts` option which can be useful for clarifying which managed hosts are referenced by the host pattern in an ansible command.
 
-The most basic host pattern is the name for a single managed host listed in the inventory file. This specifies that the host will be the only one in the inventory file that will be acted upon by the ansible command. Run:
+The most basic host pattern is the name for a single managed host listed in the inventory file. This specifies that the host will be the only one in the inventory file that will be acted upon by the ansible command.
 
-```bash
-[student<X@>ansible ~]$ ansible node1 --list-hosts
+Run:
+
+```
+ansible node1 --list-hosts
+```
+
+Expected Result:
+
+```
   hosts (1):
     node1
 ```
 
-An inventory file can contain a lot more information, it can organize your hosts in groups or define variables. In our example, the current inventory has the groups `web` and `control`. Run Ansible with these host patterns and observe the output:
+An inventory file can contain a lot more information, it can organize your hosts in groups or define variables. In our example, the current inventory has the groups `web` and `control`. 
+
+Run Ansible with these host patterns and observe the output:
 
 ```bash
 [student<X@>ansible ~]$ ansible web  --list-hosts
@@ -60,15 +71,29 @@ The behavior of Ansible can be customized by modifying settings in Ansible’s i
 
 In the lab environment provided to you an `.ansible.cfg` file has already been created and filled with the necessary details in the home directory of your `student<X>` user on the control node:
 
+Run:
+
 ```bash
 [student<X>@ansible ~]$ ls -la .ansible.cfg
+```
+
+Expected Result:
+
+```bash
 -rw-r--r--. 1 student<X> student<X> 231 14. Mai 17:17 .ansible.cfg
 ```
 
 Output the content of the file:
 
+Run:
+
 ```bash
 [student<X>@ansible ~]$ cat .ansible.cfg
+```
+
+Expected Result:
+
+```bash
 [defaults]
 stdout_callback = yaml
 connection = smart
